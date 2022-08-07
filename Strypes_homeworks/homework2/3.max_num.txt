@@ -1,0 +1,2 @@
+./3.max_num < 3.numbers.txt
+
