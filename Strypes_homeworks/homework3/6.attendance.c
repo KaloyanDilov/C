@@ -19,9 +19,7 @@ int main(void)
         {
             printf("Choise from 1 to 5 number of operation");
         }
-        
-
-        number -= 1;
+       
 
         if (option == 1)
         {   
