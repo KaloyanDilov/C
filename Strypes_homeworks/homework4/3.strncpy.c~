@@ -1,0 +1,45 @@
+#include<stdio.h>
+
+char* strncpy(char* destination, const char* source, size_t n);
+
+// Implement `strcpy()` function in C
+int main(void)
+{
+    char source[] = "C Programming";
+    char destination[25];
+ 
+    printf("%s\n", strncpy(destination, source, 5));
+ 
+    return 0;
+}
+
+
+// Function to implement `strcpy()` function
+char* strncpy(char* destination, const char* source, size_t n)
+{
+    // return if no memory is allocated to the destination
+    if (destination == NULL) {
+        return NULL;
+    }
+ 
+    // take a pointer pointing to the beginning of the destination string
+    char *ptr = destination;
+ 
+    // copy the C-string pointed by source into the array
+    // pointed by destination
+    int i = 0;
+    while ((*source != '\0') && (i < n))
+    {
+        *destination = *source;
+        destination++;
+        source++;
+        i++;
+    }
+ 
+    // include the terminating null character
+    *destination = '\0';
+ 
+    // the destination is returned by standard `strcpy()`
+    return ptr;
+}
+ 

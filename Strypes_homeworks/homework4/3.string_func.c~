@@ -1,0 +1,124 @@
+#include<stdio.h>
+
+unsigned int StrLen(const char * pString);
+size_t StrnLen(const char *pString, size_t maxlen);
+char* strcpy(char* destination, const char* source);
+
+int main()
+{   
+    char str[100] = "Hello StrLen!";
+    printf("lenght = %d\n", StrLen(str));
+
+
+    char my_str[100] = "Hello strnlen!";
+    printf("lenght = %zu\n",StrnLen(my_str, 10));
+
+
+    char source[] = "C Programming";
+    char destination[25];
+ 
+    printf("%s\n", strcpy(destination, source));
+
+    printf("%s\n", strncpy(destination, source, 5));
+
+
+
+
+    return 0;
+}
+
+
+unsigned int StrLen(const char * pString)
+{
+    unsigned int count = 0;
+
+    if(pString == NULL)
+    {
+        return 0;
+    }
+
+    while(*pString)
+    {
+        ++count;
+        ++pString;
+    }
+
+    return count;
+}
+
+
+size_t StrnLen(const char *pString, size_t maxlen)
+{
+    unsigned int count = 0;
+
+    if(pString == NULL)
+    {
+        return 0;
+    }
+
+    while((*pString) && (count < maxlen))
+    {
+        ++count;
+        ++pString;
+    }
+
+    return count;
+}
+
+
+// Function to implement `strcpy()` function
+char* strcpy(char* destination, const char* source)
+{
+    // return if no memory is allocated to the destination
+    if (destination == NULL) {
+        return NULL;
+    }
+ 
+    // take a pointer pointing to the beginning of the destination string
+    char *ptr = destination;
+ 
+    // copy the C-string pointed by source into the array
+    // pointed by destination
+    while (*source != '\0')
+    {
+        *destination = *source;
+        destination++;
+        source++;
+    }
+ 
+    // include the terminating null character
+    *destination = '\0';
+ 
+    // the destination is returned by standard `strcpy()`
+    return ptr;
+}
+
+// Function to implement `strncpy()` function
+char* strncpy(char* destination, const char* source, size_t n)
+{
+    // return if no memory is allocated to the destination
+    if (destination == NULL) {
+        return NULL;
+    }
+ 
+    // take a pointer pointing to the beginning of the destination string
+    char *ptr = destination;
+ 
+    // copy the C-string pointed by source into the array
+    // pointed by destination
+    int i = 0;
+    while ((*source != '\0') && (i < n))
+    {
+        *destination = *source;
+        destination++;
+        source++;
+        i++;
+    }
+ 
+    // include the terminating null character
+    *destination = '\0';
+ 
+    // the destination is returned by standard `strcpy()`
+    return ptr;
+}
+ 
