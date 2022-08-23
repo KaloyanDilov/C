@@ -8,6 +8,7 @@ char* strcat(char *dest, const char *src);
 char* strncat(char *dest1, const char *src1, size_t maxlen);
 int strcmp(const char* s1, const char* s2);
 int strncmp(const char* s1, const char* s2, size_t maxlen);
+char* StrStr(char* str1, char* substr);
 
 int main()
 {   
@@ -44,6 +45,15 @@ int main()
     printf("strcmp(s1, s2) = %d \n", strcmp(s1, s2));
 
     printf("strncmp(s1, s2, 3) = %d \n", strncmp(s1, s2, 3));
+
+    char str1[] = "abcdefgh";
+    char substr[] = "cd";
+    char *p;
+
+    p = StrStr(str1, substr);
+    printf("String %s is in %s \n", substr, str1);
+
+    //printf("StrStr(str1, substr) = %p \n", StrStr(str1, substr));
 
 
     return 0;
@@ -206,5 +216,31 @@ int strncmp(const char* s1, const char* s2, size_t maxlen)
     }
 
     return *s1 - *s2;
+}
+
+//Function to implement 'strstr()' function
+char* StrStr(char* str1, char* substr)
+{
+    char *ptr = str1;
+
+    int lensub = StrLen(substr);
+    
+
+    while(*ptr)
+    {   
+        if(strncmp(str1, substr, lensub))
+        {
+            return ptr;
+        }
+
+        ptr++;
+
+        
+    }
+
+    return NULL;
+    
+
+
 }
 
