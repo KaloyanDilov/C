@@ -46,12 +46,12 @@ int main()
 
     printf("strncmp(s1, s2, 3) = %d \n", strncmp(s1, s2, 3));
 
-    char str1[] = "abcdefgh";
+    char str1[] = "ab cd efgh";
     char substr[] = "cd";
     char *p;
 
     p = StrStr(str1, substr);
-    printf("String %s is in %s \n", substr, str1);
+    printf("String %s is in %s \n", p, str1);
 
     //printf("StrStr(str1, substr) = %p \n", StrStr(str1, substr));
 
@@ -228,7 +228,7 @@ char* StrStr(char* str1, char* substr)
 
     while(*ptr)
     {   
-        if(strncmp(str1, substr, lensub))
+        if(strncmp(ptr, substr, lensub) == 0)
         {
             return ptr;
         }
