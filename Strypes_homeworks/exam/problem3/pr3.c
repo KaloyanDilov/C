@@ -1,9 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdint.h>
 #include"func.h"
 #define COUNT 3
 
-typedef struct node{
+typedef struct node {
     uint64_t data;
     struct node* next;
 } node_t;
